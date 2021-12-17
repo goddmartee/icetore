@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>IceCream Store</title>
+</head>
+<body>
+	<h1>Press the button for order</h1>
+
+	<button onclick="order()">Pedir</button>
+
+	<script type="text/javascript">
+		const RAN = parseInt(Math.random() * (5 + 20));
+		
+		function order() {
+			const ORDER = prompt("¿Que sabor de helado desea?");
+			const PAYMNT = parseInt(prompt(`El de ${ORDER} vale $${RAN} (intrduzca su pago)`))
+			const EXCHANGE = PAYMNT - RAN;
+
+			if (PAYMNT < RAN) alert("Lo siento... No tienes lo suficiente (Recargue la pagina para volver a pedir)"); 
+
+			if (PAYMNT > RAN) alert(`Tenga su cambio $${EXCHANGE} y gracias por usar la app`); 
+
+			if (!PAYMNT) {
+				alert("Debes escribir un numero")
+				order();
+			}
+		}
+	</script>
+</body>
+</html>
